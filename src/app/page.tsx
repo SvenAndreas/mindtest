@@ -20,7 +20,10 @@ export default function Home() {
             </code>
             .
           </li>
-          <li>Save and see your changes instantly.</li>
+          <div className="bg-bg-primary p-20">
+            <p className="text-6xl bg-acent-l text-acent hover:text-primary-d">HOLA</p>
+          </div>
+          <li className="text-text-d">Save and see your changes instantly.</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
