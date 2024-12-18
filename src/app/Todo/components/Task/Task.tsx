@@ -1,7 +1,6 @@
 "use client";
 import { ChangeEvent, memo, useState, KeyboardEvent, useCallback } from "react";
-import { ITaskProps, TaskStatus } from "../../types/TaskType";
-import { MdDelete } from "react-icons/md";
+import { ITaskProps } from "../../types/TaskType";
 import DeleteTaskButton from "./DeleteTaskButton";
 import TaskInput from "./TaskInput";
 import Divider from "./Divider";
