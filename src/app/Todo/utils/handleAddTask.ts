@@ -1,5 +1,6 @@
-import { randomId } from ".";
+
 import { ITask, TaskStatus } from "../types/TaskType";
+import { randomId } from "./randomId";
 
 export const handleAddTask = (
   setTasks: React.Dispatch<React.SetStateAction<ITask[]>>,

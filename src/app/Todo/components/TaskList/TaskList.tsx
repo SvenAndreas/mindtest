@@ -12,9 +12,7 @@ import {
 import FilterButton from "./FilterButton";
 import SelectedFilterButton from "./SelectedFilterButton";
 import Task from "../Task/Task";
-import TaskListHeaderColumn from "./TasklistHeaderColumn";
-
-
+import TaskListHeaderColumn from "./TaskListHeaderColumn";
 
 function TaskList() {
   const { getItem } = useLocalStorage("tasks");
@@ -79,10 +77,7 @@ function TaskList() {
         <>
           <FilterButton setFilter={handleSetFilter} />
           {filter && (
-            <SelectedFilterButton
-              filter={filter}
-              setFilter={setFilter}
-            />
+            <SelectedFilterButton filter={filter} setFilter={setFilter} />
           )}
           <TaskListHeaderColumn />
         </>
@@ -90,7 +85,7 @@ function TaskList() {
       <ul className="flex flex-col gap-4">
         {filter &&
           filteredTasks.length !== 0 &&
-          filteredTasks.map((e, i) => (
+          filteredTasks.map((e) => (
             <Task
               id={e.id}
               onDescriptionChange={(newDescription) =>
@@ -108,7 +103,7 @@ function TaskList() {
           ))}
         {filter === null &&
           tasks.length !== 0 &&
-          tasks.map((e, i) => {
+          tasks.map((e) => {
             return (
               <Task
                 id={e.id}
