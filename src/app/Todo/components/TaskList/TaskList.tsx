@@ -7,6 +7,7 @@ import { handleAddTask } from "../../utils";
 import {
   useFilterTasks,
   useFocusNewInput,
+  useInitTaskFromLocalStorage,
   useSyncLocalStorage,
 } from "../../hooks";
 import FilterButton from "./FilterButton";
@@ -25,7 +26,8 @@ function TaskList() {
   const [filter, setFilter] = useState<null | TaskStatus>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
+  
+  useInitTaskFromLocalStorage(setTasks);
   useSyncLocalStorage(tasks);
   useFocusNewInput(inputRef, isAddingTask);
   useFilterTasks(filter, tasks, setFilteredTasks);
@@ -65,9 +67,8 @@ function TaskList() {
 
   const handleDeleteTask = useCallback((id: number) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-    setFilter(null)
+    setFilter(null);
   }, []);
-
 
   const handleSetFilter = useCallback((filter: TaskStatus | null) => {
     setFilter(filter);
@@ -103,7 +104,12 @@ function TaskList() {
               onDeleteTask={handleDeleteTask}
             />
           ))}
-        {filter && filteredTasks.length === 0 && (<p className="px-1 font-bold text-lg mt-2">No se encontraron resultados...  👀</p>)}
+
+        {filter && filteredTasks.length === 0 && (
+          <p className="px-1 font-bold text-lg mt-2">
+            No se encontraron resultados... 👀
+          </p>
+        )}
 
         {filter === null &&
           tasks.length !== 0 &&
