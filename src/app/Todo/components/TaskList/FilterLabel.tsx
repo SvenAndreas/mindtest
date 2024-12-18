@@ -13,7 +13,7 @@ function FilterLabel({
 }) {
   return (
     <div
-      className={`absolute w-fit text-sm left-9 top-1/2 -translate-y-1/2  ${containerAdditionalClass}`}
+      className={`absolute  sm:w-fit text-sm left-9 top-1/2 -translate-y-1/2  ${containerAdditionalClass}`}
     >
       <p
         onClick={onClick}
