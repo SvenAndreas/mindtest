@@ -7,7 +7,6 @@ import { handleAddTask } from "../../utils";
 import {
   useFilterTasks,
   useFocusNewInput,
-  useInitTaskFromLocalStorage,
   useSyncLocalStorage,
 } from "../../hooks";
 import FilterButton from "./FilterButton";
@@ -16,18 +15,16 @@ import Task from "../Task/Task";
 import TaskListHeaderColumn from "./TaskListHeaderColumn";
 
 function TaskList() {
-  const { getItem } = useLocalStorage("tasks");
+  const {getItem} = useLocalStorage('tasks')
+  const storedTasks = getItem()
 
-  const localTasks = getItem();
-
-  const [tasks, setTasks] = useState<ITask[]>(localTasks ? localTasks : []);
+  const [tasks, setTasks] = useState<ITask[]>(storedTasks);
   const [filteredTasks, setFilteredTasks] = useState<ITask[]>([]);
   const [isAddingTask, setIsAddingTask] = useState(false);
   const [filter, setFilter] = useState<null | TaskStatus>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
-  
-  useInitTaskFromLocalStorage(setTasks);
+
   useSyncLocalStorage(tasks);
   useFocusNewInput(inputRef, isAddingTask);
   useFilterTasks(filter, tasks, setFilteredTasks);
