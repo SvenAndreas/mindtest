@@ -18,8 +18,8 @@ const links = [
 ];
 function Navbar() {
   return (
-    <nav className="h-fit fixed flex items-center  justify-between w-full py-2 px-2 sm:px-8 sm:items-start ">
-      <aside className={`bg-bg-primary inline-block h-fit rounded-lg`}>
+    <nav className="h-fit fixed flex items-center  justify-between w-full py-2 px-2 sm:px-8 sm:items-start z-50 ">
+      <aside className={`bg-bg-primary inline-block h-fit rounded-lg shadow-xl`}>
         <ul className={`p-2 flex sm:flex-col gap-4`}>
           {links.map((e) => {
             return (

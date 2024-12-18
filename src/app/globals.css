@@ -18,7 +18,7 @@
   --bg-primary: hsl(var(--hue-primary),100%,100%);
   --primary:    hsl(var(--hue-primary),89%,41%);
   --primary-d:  hsl(var(--hue-primary),89%,38%);
-  --primary-l:  hsl(var(--hue-primary),60%,89%);
+  --primary-l:  hsl(var(--hue-primary),62%,85%);
   --secondary:  hsl(var(--hue-secondary),0%,50%);
   --secondary-l:hsl(var(--hue-secondary),0%,89%);
   --secondary-d:hsl(var(--hue-secondary),0%,30%);
