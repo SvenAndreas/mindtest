@@ -1,6 +1,6 @@
 
 import { ITask, TaskStatus } from "../types/TaskType";
-import { randomId } from "./randomId";
+import { createId } from "./createId";
 
 
 export const handleAddTask = (
@@ -9,9 +9,9 @@ export const handleAddTask = (
 ): void => {
   setIsAddingTask(true);
   setTasks((prevTasks) => {
-    let id = randomId();
+    let id = createId();
     while (prevTasks.some((task) => task.id === id)) {
-      id = randomId();
+      id = createId();
     }
     const newTasks = [
       ...prevTasks,
