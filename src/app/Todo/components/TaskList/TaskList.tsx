@@ -30,10 +30,6 @@ function TaskList() {
   useFocusNewInput(inputRef, isAddingTask);
   useFilterTasks(filter, tasks, setFilteredTasks);
 
-  const handleDeleteTask = useCallback((id: number) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-  }, []);
-
   const onBlur = useCallback(() => {
     setIsAddingTask(false);
   }, []);
@@ -67,13 +63,19 @@ function TaskList() {
     []
   );
 
+  const handleDeleteTask = useCallback((id: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    setFilter(null)
+  }, []);
+
+
   const handleSetFilter = useCallback((filter: TaskStatus | null) => {
     setFilter(filter);
   }, []);
 
   return (
     <article className="rounded-2xl bg-bg-primary px-9 sm:px-10 py-4 border-t-[1px] border-secondary-l shadow-xl">
-      {tasks.length !== 0 && (
+      {tasks.length != 0 && (
         <>
           <FilterButton setFilter={handleSetFilter} />
           {filter && (
@@ -101,6 +103,8 @@ function TaskList() {
               onDeleteTask={handleDeleteTask}
             />
           ))}
+        {filter && filteredTasks.length === 0 && (<p className="px-1 font-bold text-lg mt-2">No se encontraron resultados...  👀</p>)}
+
         {filter === null &&
           tasks.length !== 0 &&
           tasks.map((e) => {
