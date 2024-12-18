@@ -18,7 +18,7 @@ function TaskList() {
   const {getItem} = useLocalStorage('tasks')
   const storedTasks = getItem()
 
-  const [tasks, setTasks] = useState<ITask[]>(storedTasks);
+  const [tasks, setTasks] = useState<ITask[]>(storedTasks || []);
   const [filteredTasks, setFilteredTasks] = useState<ITask[]>([]);
   const [isAddingTask, setIsAddingTask] = useState(false);
   const [filter, setFilter] = useState<null | TaskStatus>(null);
