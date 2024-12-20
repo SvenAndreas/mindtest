@@ -6,7 +6,7 @@ const createWrapperAndAppendToBody = (wrapperId: string) => {
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 };
-function Modal({
+function ReactPortal({
   children,
   wrapperId,
 }: {
@@ -30,4 +30,4 @@ function Modal({
   return createPortal(children, wrapperElement);
 }
 
-export default Modal;
+export default ReactPortal;
