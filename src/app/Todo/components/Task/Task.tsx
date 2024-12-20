@@ -6,6 +6,7 @@ import TaskInput from "./TaskInput";
 import Divider from "./Divider";
 import TaskStatusButton from "./TaskStatusButton";
 import TaskStatusSelector from "./TaskStatusSelector";
+import DeleteTaskModal from "./DeleteTaskModal";
 
 function Task({
   status,
@@ -18,8 +19,9 @@ function Task({
   onDeleteTask,
   id,
 }: ITaskProps) {
-  const [isStatusOpen, setIsStatusOpen] = useState(false);
 
+  const [isStatusOpen, setIsStatusOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onDescriptionChange(e.target.value);
   };
@@ -34,10 +36,13 @@ function Task({
   const handleOpenStatusSelector = useCallback(() => {
     setIsStatusOpen((prevState) => !prevState);
   }, []);
+  const handleCloseDeleteModal = () => {
+    setIsDeleteModalOpen(!isDeleteModalOpen);
+  }
 
   return (
     <div className="bg-bg group rounded-lg relative flex justify-between">
-      <DeleteTaskButton id={id} onDeleteTask={onDeleteTask} />
+      <DeleteTaskButton onDeleteTask={handleCloseDeleteModal} />
       <div className="p-2 w-full">
         <TaskInput
           inputRef={inputRef}
@@ -60,6 +65,7 @@ function Task({
           />
         )}
       </div>
+      <DeleteTaskModal isOpen={isDeleteModalOpen} handleClose={handleCloseDeleteModal} id={id} onDeleteTask={onDeleteTask}  />
     </div>
   );
 }

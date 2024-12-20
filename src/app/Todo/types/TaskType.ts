@@ -15,5 +15,5 @@ export interface ITaskProps extends ITask {
   onKeyPress: (event: KeyboardEvent<HTMLInputElement>) => void;
   onDescriptionChange: (newDescription: string) => void;
   onChangeStatus: (newStatus: TaskStatus) => void;
-  onDeleteTask: (index: number) => void;
+  onDeleteTask: (taskId: number) => void;
 }
