@@ -13,7 +13,7 @@ const DeleteTaskModal = ({
 }) => {
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
-      <div className="mb-4 w-[250px] sm:w-full" >
+      <div className="mb-4 w-[250px] sm:w-full">
         <p className="text-lg text-center sm:text-2xl font-bold">
           ¿Deseas eliminar esta tarea?
         </p>
@@ -21,9 +21,19 @@ const DeleteTaskModal = ({
           Esta acción no se puede deshacer
         </p>
       </div>
-      <div className="w-full flex justify-between">
-        <button className="bg-red-400 text-text-l p-2 rounded " onClick={handleClose}>Cancelar</button>
-        <button className="relative bg-primary text-text-l rounded p-2 left-[48px] sm:left-[65px] md:left-[81px]" onClick={() => onDeleteTask(id)}>Continuar</button>¸
+      <div className="flex justify-between items-center w-full">
+        <button
+          className="w-1/2 bg-red-400 text-text-l p-2 rounded mr-2"
+          onClick={handleClose}
+        >
+          Cancelar
+        </button>
+        <button
+          className="w-1/2 bg-primary text-text-l p-2 rounded ml-2"
+          onClick={() => onDeleteTask(id)}
+        >
+          Continuar
+        </button>
       </div>
     </Modal>
   );
