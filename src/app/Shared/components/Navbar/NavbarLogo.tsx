@@ -1,6 +1,6 @@
 import React from "react";
 // import Image from "next/image";
-import Logo from '../../assets/mindfactory-logo.webp'
+// import Logo from '../../assets/mindfactory-logo.webp'
 function NavbarLogo() {
   return (
     <div className="cursor-default rounded-md bg-white shadow-xl px-2">
