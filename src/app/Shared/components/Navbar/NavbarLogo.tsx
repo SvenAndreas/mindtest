@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Logo from '../../assets/mindfactory-logo.webp'
 function NavbarLogo() {
   return (
